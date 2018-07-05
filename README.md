@@ -1,22 +1,18 @@
 [![Mozilla Add-on](https://img.shields.io/amo/v/multithreaded-download-manager.svg?style=flat-square)](https://addons.mozilla.org/firefox/addon/multithreaded-download-manager/) [![Mozilla Add-on](https://img.shields.io/amo/d/multithreaded-download-manager.svg?style=flat-square)](https://addons.mozilla.org/firefox/addon/multithreaded-download-manager/)
 
-# Multithreaded Download Manager
+# Multi-threaded download manager
 
-Experimental Firefox 57 extension: download manager with multithreading support.
+--- Experimental - use at your own risk ---
+Firefox 57 Extension: Support for multi-threaded download manager.
+* *Important: This extension is still in the testing phase. Please do so at your own risk.*
+* The downloaded file will be saved to Firefox's internal storage and then moved to the default download directory. Make sure there is enough storage space.
+* It is recommended that all download tasks are deleted or paused before exiting the browser, restarting, updating, etc... 
+* If the browser's out-of-process-extension flag is disabled, an error will occur after a file download completes. The extension can automatically correct this error, but requires an extra file copy. This can also cause the download notification/popup to be blank-resizing of notification will fix this.
+* Firefox has a limit on the number of simultaneous connections to the same server. If more than 6 threads are required go to about:config and increase the value of 'network.http.max-persistent-connections-per-server' and 'network.http.max-persistent-connections-per-proxy'.
+* This extension requires Firefox's internal storage (indexedDB), so it does not work in "Always use private browsing" mode.
 
-#### Important note:
+This extension can download files using multiple connections. This may increase download speed depending on network conditions.
 
-* **This extension is experimental. Use at your own risk.**
-* The requested file is first downloaded to Firefox's internal storage and then moved to the default download folder. Make sure there is enough disk space.
-* It is suggested to remove or pause all the tasks before exiting Firefox or performing updates. The extension can resume downloads after the update or the next start of Firefox (losing only about 1 second's progress), though this feature is less tested.
-* If the feature "out of process extensions" (enabled by default in Windows, disabled by default in Linux) is disabled, the browser will have problem saving the downloaded file. The extension can workaround it but an additional copy is required. It may also cause the popup window to be blank (resizing can fix it).
-* Firefox limits the number of simultaneous connections to a single server. If more than 6 threads are needed, increase network.http.max-persistent-connections-per-server and network.http.max-persistent-connections-per-proxy in about:config .
-* The extension requires access to the internal storage (indexedDB) and does not work with the "always private browsing" mode without granting exceptions
+Click the toolbar button to open the download panel, or right-click the button to open it in a new tab or window. Click the button at the bottom of the panel or create a new download task in the context menu of the download link.
 
-
-This extension can download files with multiple connections to the server. Depending on the network condition, this may increase the download speed.
-
-Click the toolbar button to open the download panel. Alternatively, right click the button to open in a new tab or window. Download tasks can be created by clicking the buttons at the bottom of the panel, or in the context menu of links on websites.
-Monitoring download can be enabled in the options. When it is enabled, files larger than a configured size will automatically trigger the download dialog. Click "continue in browser" to switch to Firefox's built-in download.
-
----
+The monitor download function can be enabled in the extension options page. When enabled, opening a file larger than the specified size will automatically pop up the download dialog. Selecting "Continue in Browser" switches to the browser's built-in downloader.

@@ -2,7 +2,7 @@
 
 # Multi-threaded download manager
 
---- Experimental - use at your own risk ---
+###### Experimental - use at your own risk
 Firefox 57 Extension: Support for multi-threaded download manager.
 * *Important: This extension is still in the testing phase. Please do so at your own risk.*
 * The downloaded file will be saved to Firefox's internal storage and then moved to the default download directory. Make sure there is enough storage space.
